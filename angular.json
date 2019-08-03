@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "NgxMatomo": {
+      "projectType": "library",
+      "root": "projects/ngx-matomo",
+      "sourceRoot": "projects/ngx-matomo/src",
+      "prefix": "NgxMatomo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-matomo/tsconfig.lib.json",
+            "project": "projects/ngx-matomo/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-matomo/src/test.ts",
+            "tsConfig": "projects/ngx-matomo/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-matomo/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-matomo/tsconfig.lib.json",
+              "projects/ngx-matomo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-matomo"
 }
