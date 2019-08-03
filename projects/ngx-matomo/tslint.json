@@ -12,6 +12,7 @@
       "element",
       "ngx-matomo",
       "kebab-case"
-    ]
+    ],
+    "max-line-length": false
   }
 }
