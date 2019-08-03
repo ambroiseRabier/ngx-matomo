@@ -1,3 +1,6 @@
+# Inspired from
+https://github.com/Arnaud73/ngx-matomo
+
 # NgxMatomo
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
