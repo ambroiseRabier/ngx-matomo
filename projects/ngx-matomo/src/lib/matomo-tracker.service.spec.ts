@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgxMatomoService } from './ngx-matomo.service';
+import { MatomoTracker } from './matomo-tracker.service';
 
-describe('NgxMatomoService', () => {
+describe('MatomoTracker', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NgxMatomoService = TestBed.get(NgxMatomoService);
+    const service: MatomoTracker = TestBed.get(MatomoTracker);
     expect(service).toBeTruthy();
   });
 });

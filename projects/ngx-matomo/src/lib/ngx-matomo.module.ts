@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { NgxMatomoInjector } from './matomo-injector.service';
+import { MatomoInjector } from './matomo-injector.service';
+import { MatomoTracker } from './matomo-tracker.service';
 
 
 @NgModule({
   declarations: [],
   imports: [],
-  providers: [NgxMatomoInjector],
+  providers: [MatomoInjector, MatomoTracker],
   exports: []
 })
 export class NgxMatomoModule {
