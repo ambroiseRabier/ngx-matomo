@@ -1,5 +1,5 @@
 {
-  "name": "@ambroise-rabier/ngx-matomo",
+  "name": "ngx-matomo",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.0",

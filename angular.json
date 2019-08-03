@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-matomo": {
+    "MatomoLibrary": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-matomo",
+            "outputPath": "dist/MatomoLibrary",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-matomo:build"
+            "browserTarget": "MatomoLibrary:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-matomo:build:production"
+              "browserTarget": "MatomoLibrary:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-matomo:build"
+            "browserTarget": "MatomoLibrary:build"
           }
         },
         "test": {
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-matomo:serve"
+            "devServerTarget": "MatomoLibrary:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-matomo:serve:production"
+              "devServerTarget": "MatomoLibrary:serve:production"
             }
           }
         }
@@ -125,7 +125,7 @@
       "projectType": "library",
       "root": "projects/ngx-matomo",
       "sourceRoot": "projects/ngx-matomo/src",
-      "prefix": "NgxMatomo",
+      "prefix": "ngx-matomo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -156,5 +156,5 @@
         }
       }
     }},
-  "defaultProject": "ngx-matomo"
+  "defaultProject": "MatomoLibrary"
 }
