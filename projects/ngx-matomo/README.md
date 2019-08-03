@@ -1,6 +1,14 @@
 # Inspired from
 https://github.com/Arnaud73/ngx-matomo
 
+# Check also
+https://github.com/matomo-org/matomo-nodejs-tracker
+
+Nodejs lib from Matomo, but it seems more low level.
+https://developer.matomo.org/api-reference/tracking-api
+https://developer.matomo.org/api-reference/tracking-javascript
+
+
 # NgxMatomo
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
