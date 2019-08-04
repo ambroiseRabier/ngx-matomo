@@ -19,7 +19,8 @@
     "test-lib": "ng test NgxMatomo --code-coverage --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint-lib": "ng lint NgxMatomo",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ci-process-cover": "cat coverage/lcov.info | coveralls"
   },
   "private": true,
   "dependencies": {
