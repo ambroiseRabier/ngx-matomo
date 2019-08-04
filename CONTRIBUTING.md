@@ -15,6 +15,17 @@ npm run build-lib
 Pusblishing is done by tag on master branch by Travis, `src/projects/ngx-matomo/package.json` version had to be changed manually though 
 (don't use `npm version` as it modify the wrong package.json). Make a commit and tag it by using version number.
 
+```diff
+modified:   projects/ngx-matomo/package.json
+```
+
+```shell script
+git tag -l
+git commit -am"1.0.0"
+git tag v1.0.0
+git push && git push --tags
+```
+
 ## Code scaffolding
 
 Run `ng generate component component-name --project NgxMatomo` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project NgxMatomo`.
