@@ -12,9 +12,8 @@ script:
   - npm run test-lib
   - npm run build-lib
 
-# do not use after_script as it executed after deploy, that you deploy or not.
 before_deploy:
-  - npm run ci-process-cover && cd dist/ngx-matomo
+  - cd dist/ngx-matomo
 
 deploy:
   provider: npm
@@ -23,3 +22,9 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+
+after_deploy:
+  - cd ../..
+
+after_script:
+  - npm run ci-process-cover
