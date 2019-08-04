@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/ambroiseRabier/ngx-matomo.svg?branch=master)](https://travis-ci.com/ambroiseRabier/ngx-matomo)
+[![Coverage Status](https://coveralls.io/repos/github/ambroiseRabier/ngx-matomo/badge.svg)](https://coveralls.io/github/ambroiseRabier/ngx-matomo)
+
 # ngx-matomo 
 Matomo (aka. Piwik) web analytics for applications based on Angular 5, 6, 7 & 8.
 
