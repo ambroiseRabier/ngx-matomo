@@ -1,6 +1,10 @@
 {
   "name": "matomo-library",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ambroiseRabier/ngx-matomo"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

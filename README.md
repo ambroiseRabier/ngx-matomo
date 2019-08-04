@@ -199,10 +199,10 @@ See also:
 - https://developer.matomo.org/api-reference/tracking-javascript (this lib seems more low level).
 - https://github.com/matomo-org/matomo-nodejs-tracker
 
-## Original Source
-[ngx-matomo](https://github.com/Arnaud73/ngx-matomo)
-[Angular2Piwik](https://github.com/awronka/Angular2Piwik)
-[Angulartics 2](https://github.com/angulartics/angulartics2)
+## Inspired from
+[ngx-matomo](https://github.com/Arnaud73/ngx-matomo)  
+[Angular2Piwik](https://github.com/awronka/Angular2Piwik)  
+[Angulartics 2](https://github.com/angulartics/angulartics2)  
 
 ## License
 [MIT](LICENSE)
