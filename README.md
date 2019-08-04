@@ -9,7 +9,7 @@ IMPORTANT NOTE: As I do not use most of Matomo features myself and my time is li
 ## Install
 ```npm install --save ngx-matomo```
 
-## Adding Matomo
+## Adding Matomo 
 You can add Matomo either via script tag or using the MatomoInjector in your root component.
 
 ### (Recommended) Initialize Matomo via Root component 
