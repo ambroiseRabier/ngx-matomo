@@ -20,7 +20,7 @@
     "lint": "ng lint",
     "lint-lib": "ng lint NgxMatomo",
     "e2e": "ng e2e",
-    "ci-process-cover": "cat coverage/lcov.info | coveralls"
+    "ci-process-cover": "cat coverage/ngx-matomo/lcov.info | coveralls"
   },
   "private": true,
   "dependencies": {
