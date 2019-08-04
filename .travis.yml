@@ -15,10 +15,14 @@ script:
 after_script:
   - npm run ci-process-cover
 
+before_deploy:
+  - cd dist
+
 deploy:
   provider: npm
   email: $NPM_PUBLIC_EMAIL
   api_key: $NPM_API_KEY
   skip_cleanup: true
   on:
+    branch: master
     tags: true
