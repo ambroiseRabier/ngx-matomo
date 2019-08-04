@@ -12,11 +12,8 @@ script:
   - npm run test-lib
   - npm run build-lib
 
-after_script:
-  - cd ../.. && npm run ci-process-cover
-
 before_deploy:
-  - cd dist/ngx-matomo
+  - npm run ci-process-cover && cd dist/ngx-matomo
 
 deploy:
   provider: npm
