@@ -1,8 +1,16 @@
 {
   "name": "@ambroise-rabier/ngx-matomo",
+  "description": "Matomo (aka. Piwik) web analytics for applications based on Angular 5, 6, 7 & 8.",
+  "author": "Ambroise Rabier",
   "version": "0.0.1",
+  "keywords": [
+    "matomo",
+    "piwik",
+    "angular",
+    "web analytics"
+  ],
+  "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^8.2.0",
-    "@angular/core": "^8.2.0"
+    "@angular/core": ">=5.0.0 <9.0.0"
   }
 }

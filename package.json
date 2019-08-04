@@ -5,8 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-lib": "cp LICENSE projects/ngx-matomo/LICENSE && cp README.md projects/ngx-matomo/README.md && ng build NgxMatomo",
     "test": "ng test",
+    "test-lib": "ng test NgxMatomo --code-coverage --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
+    "lint-lib": "ng lint NgxMatomo",
     "e2e": "ng e2e"
   },
   "private": true,

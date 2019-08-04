@@ -3,5 +3,5 @@
  */
 
 export * from './lib/matomo-tracker.service';
-export * from './lib/ngx-matomo.component';
+//export * from './lib/matomo.component';
 export * from './lib/ngx-matomo.module';
