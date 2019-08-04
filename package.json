@@ -1,10 +1,15 @@
 {
   "name": "matomo-library",
   "version": "0.0.0",
+  "author": "Ambroise Rabier",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ambroiseRabier/ngx-matomo"
+    "url": "git+https://github.com/ambroiseRabier/ngx-matomo.git"
   },
+  "bugs": {
+    "url": "https://github.com/ambroiseRabier/ngx-matomo/issues"
+  },
+  "homepage": "https://github.com/ambroiseRabier/ngx-matomo#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

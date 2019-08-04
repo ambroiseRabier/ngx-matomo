@@ -5,8 +5,12 @@
   "version": "1.0.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ambroiseRabier/ngx-matomo"
+    "url": "git+https://github.com/ambroiseRabier/ngx-matomo.git"
   },
+  "bugs": {
+    "url": "https://github.com/ambroiseRabier/ngx-matomo/issues"
+  },
+  "homepage": "https://github.com/ambroiseRabier/ngx-matomo#readme",
   "keywords": [
     "matomo",
     "piwik",
