@@ -12,7 +12,8 @@ npm run build-lib
 
 ## Publishing
 
-Pusblishing is done by tag on master branch by Travis.
+Pusblishing is done by tag on master branch by Travis, `src/projects/ngx-matomo/package.json` version had to be changed manually though 
+(don't use `npm version` as it modify the wrong package.json). Make a commit and tag it by using version number.
 
 ## Code scaffolding
 
