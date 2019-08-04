@@ -459,9 +459,7 @@ export interface IMatomoTrackerFunction {
  * Wrapper for the Matomo Javascript tracker.
  * @export
  */
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MatomoTracker implements IMatomoTracker, IMatomoTrackerFunction {
 
   constructor() {

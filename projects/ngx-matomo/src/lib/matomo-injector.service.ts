@@ -9,9 +9,7 @@ declare var document;
  * Service for injecting the Matomo tracker in the application.
  * @export
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class MatomoInjector {
 
   constructor() {

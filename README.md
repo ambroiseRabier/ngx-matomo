@@ -4,48 +4,48 @@
 # ngx-matomo 
 Matomo (aka. Piwik) web analytics for applications based on Angular 5, 6, 7 & 8.
 
-IMPORTANT NOTE: As I do not use most of Matomo features myself and my time is limited, I haven't tested most of the code, especially async requests made by matomo. If you experience any error, please fill an issue as it is probably easely fixable.
+IMPORTANT NOTE: As I do not use most of Matomo features myself (and my time is limited), I haven't tested most of the code, especially async requests (Promise) made by matomo. If you experience any error, please fill an issue as it is probably easely fixable.
 
 ## Install
-```npm install --save ngx-matomo```
+```shell script
+npm i --save @ambroise-rabier/ngx-matomo
+```
 
 ## Adding Matomo 
 You can add Matomo either via script tag or using the MatomoInjector in your root component.
 
-### (Recommended) Initialize Matomo via Root component 
-Import ```MatomoModule``` into your root ```NgModule```.
+### Initialize Matomo
 
-```ts
+```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatomoModule } from 'ngx-matomo';
-
+import { MatomoModule } from '@ambroise-rabier/ngx-matomo';
 import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
-    MatomoModule
+    MatomoModule,
   ],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
 ```
 
 Inject Matomo into your root component and call `init` function.
 
-```ts
-import { Component } from '@angular/core';
-import { MatomoInjector } from 'ngx-matomo';
+```typescript
+import { Component, AfterViewInit } from '@angular/core';
+import { MatomoInjector } from '@ambroise-rabier/ngx-matomo';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent implements AfterViewInit {
   constructor(
-    private matomoInjector: MatomoInjector
+    private matomoInjector: MatomoInjector,
   ) {}
   
   // By initializing Matomo after the view has been generated, you allow Matomo to track outlinks generated on the first view.
@@ -58,11 +58,9 @@ export class AppComponent implements AfterViewInit {
 
 Once that's done you can import ```MatomoTracker``` into any component of your application.
 
-```ts
-
-// component
+```typescript
 import { Component } from '@angular/core';
-import { MatomoTracker } from 'ngx-matomo';
+import { MatomoTracker } from '@ambroise-rabier/ngx-matomo';
 
 @Component({
   selector: 'app',
@@ -70,68 +68,34 @@ import { MatomoTracker } from 'ngx-matomo';
 })
 export class AppComponent {
   constructor(
-    private matomoTracker: MatomoTracker
+    private matomoTracker: MatomoTracker,
   ) { }
 
   ngOnInit() {
-    // Do something with this.matomoTracker...
+    // Track something on init...
   }
 }
 ```
 
-### (alternative) Adding Matomo into your application via script tag.
-*You can skip this part if you have initialized Matomo via Root component.*
-
-Matomo provide this script when you set up a new website to be tracked.
-
-Inject this code into your header to initialize Matomo in your application.  
-Make sure to replace the MATOMO_URL with your Matomo server url, and SITE_ID by the id of your website on Matomo. 
-You can remove all the `_paq` methods in this script and set them up in your Angular 5+ application. 
-
-```html
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//{$MATOMO_URL}/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '{$SITE_ID}']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-```
-
-
 ## Manually trigger events
 
-```html
-<button (click)="whatHappensOnClick(1)"></button>
-```
-
-```ts
-// component
+```typescript
 import { Component } from '@angular/core';
-import { MatomoTracker } from 'ngx-matomo';
+import { MatomoTracker } from '@ambroise-rabier/ngx-matomo';
 
 @Component({
-  selector: 'app',
-  templateUrl: './myButton.html'
+  selector: 'app-my',
+  template: `<button (click)="onClick()">Click me !</button>`
 })
 export class MyComponent {
+  count = 0;
+
   constructor(
-    private matomoTracker: MatomoTracker
+    private matomoTracker: MatomoTracker,
   ) { }
 
-  whatHappensOnClick(someVal){
-    /*
-    * some code...
-    */
-    this.matomoTracker.trackEvent('category', 'action', 'name', someVal);
+  onClick(){
+    this.matomoTracker.trackEvent('category', 'action', 'name', ++this.count);
   }
 }
 ```
@@ -142,14 +106,16 @@ Just call ```this.matomoTracker.enableLinkTracking();``` after your DOM has been
 
 ## Track router events
 
-```ts
-import { Component } from '@angular/core';
-import { MatomoInjector } from 'ngx-matomo';
+```typescript
+import { AfterViewInit, Component } from '@angular/core';
+import { MatomoInjector } from '@ambroise-rabier/ngx-matomo';
+// replace by your env
+import { environment } from '../environments/environment';
 import { NavigationEnd, Router } from '@angular/router';
-
+import { delay, filter, skip } from 'rxjs/operators';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent implements AfterViewInit {
@@ -161,9 +127,14 @@ export class AppComponent implements AfterViewInit {
   // By initializing Matomo after the view has been generated, you allow Matomo to track outlinks generated on the first view.
   ngAfterViewInit() {
     // For example if you installed Matomo in the subdomain analytics.my-website.com on https
-    this.matomoInjector.init('https://analytics.my-website.com/');
+    this.matomoInjector.init({
+      url: 'https://analytics.my-website.com/',
+      // It is recommended to use another matomo website id for your preprod, test, dev env.
+      id: environment.production ? 1 : 2,
+    });
     
-    let previousURL: string = window.location.href;
+    // previous url
+    let referrer: string = window.location.href;
     
     this.router.events.pipe(
       // filter out NavigationStart, Resolver, ...
@@ -174,21 +145,11 @@ export class AppComponent implements AfterViewInit {
       delay(0),
     ).subscribe(next => {
       // referrer is optional
-      this.matomoInjector.onPageChange({ referrer: previousURL });
-      previousURL = window.location.href;
+      this.matomoInjector.onPageChange({ referrer });
+      referrer = window.location.href;
     });
   }
 }
-```
-
-## Tips
-You can add two websites on Matomo, one for production, and another one for dev environment. And use them like that: 
-
-```ts
-    this.matomoInjector.init(
-      'https://analytics.my-website.com/',
-      environment.production ? 1 : 2
-    );
 ```
 
 ## Matomo documentation

@@ -12,10 +12,10 @@ export class MatomoInitSettings {
     /**
      * Name of the script, for legacy support you can use 'piwik'.
      */
-    scriptName: string = 'matomo';
+    scriptName?: string = 'matomo';
 
     /**
      * Matomo will scan the page -ONCE- for links and track them. Disable if you wanna do it yourself.
      */
-    enableLinkTracking: boolean = true;
+    enableLinkTracking?: boolean = true;
 }

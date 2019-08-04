@@ -9,5 +9,5 @@ import { MatomoTracker } from './matomo-tracker.service';
   providers: [MatomoInjector, MatomoTracker],
   exports: []
 })
-export class NgxMatomoModule {
+export class MatomoModule {
 }
